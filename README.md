@@ -8,7 +8,7 @@
 
 This is a community-maintained fork of the original [vue-treeselect](https://github.com/riophae/vue-treeselect) by [Riophae Lee](https://github.com/riophae). The original project is no longer actively maintained, so this fork aims to continue its development and maintenance.
 
-**Maintainer:** [Joevin](https://github.com/Joevin-Tang)  
+**Maintainer:** [Joevin](https://github.com/Joevin-Tang) (joevintom@gmail.com)  
 **Original Author:** [Riophae Lee](https://github.com/riophae)  
 **Original Repository:** https://github.com/riophae/vue-treeselect
 

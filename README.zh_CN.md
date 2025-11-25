@@ -8,7 +8,7 @@
 
 这是原始 [vue-treeselect](https://github.com/riophae/vue-treeselect) 项目（由 [Riophae Lee](https://github.com/riophae) 创建）的社区维护 Fork。由于原项目不再被积极维护，这个 Fork 旨在继续其开发和维护工作。
 
-**维护者:** [Joevin](https://github.com/Joevin-Tang)  
+**维护者:** [Joevin](https://github.com/Joevin-Tang) (joevintom@gmail.com)  
 **原始作者:** [Riophae Lee](https://github.com/riophae)  
 **原始仓库:** https://github.com/riophae/vue-treeselect
 
