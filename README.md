@@ -1,16 +1,18 @@
 # vue-treeselect-next
 
+[中文文档](./README.zh_CN.md) | English
+
 > A multi-select component with nested options support for Vue.js
 
-## 🔔 About This Fork
+## 🔔 Project Overview
 
 This is a community-maintained fork of the original [vue-treeselect](https://github.com/riophae/vue-treeselect) by [Riophae Lee](https://github.com/riophae). The original project is no longer actively maintained, so this fork aims to continue its development and maintenance.
 
-**Maintainer:** [Joevin Tang](https://github.com/Joevin-Tang)  
+**Maintainer:** [Joevin](https://github.com/Joevin-Tang) (joevintom@gmail.com)  
 **Original Author:** [Riophae Lee](https://github.com/riophae)  
 **Original Repository:** https://github.com/riophae/vue-treeselect
 
-### Changes in This Fork
+### Improvements & Updates
 - Bug fixes and improvements
 - Updated dependencies
 - Performance optimizations
@@ -187,4 +189,4 @@ Released under the [MIT License](https://github.com/Joevin-Tang/vue-treeselect-n
 This project is a fork of the original [vue-treeselect](https://github.com/riophae/vue-treeselect) created by [Riophae Lee](https://github.com/riophae).
 
 Original Copyright (c) 2017-2020 Riophae Lee.  
-Fork maintained by [Joevin Tang](https://github.com/Joevin-Tang) (c) 2025-present.
+Fork maintained by [Joevin](https://github.com/Joevin-Tang) (c) 2025-present.
