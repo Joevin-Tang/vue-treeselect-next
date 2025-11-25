@@ -39,7 +39,7 @@
 建议通过 npm 安装 vue-treeselect，并使用 [webpack](https://webpack.js.org/) 等打包工具构建应用。
 
 ```bash
-npm install --save @joevin-tang/vue-treeselect-next
+npm install --save @joevin/vue-treeselect-next
 ```
 
 以下示例展示如何在你的 [Vue SFC](https://vuejs.org/v2/guide/single-file-components.html) 中集成 vue-treeselect。
@@ -54,9 +54,9 @@ npm install --save @joevin-tang/vue-treeselect-next
 
 <script>
   // 导入组件
-  import Treeselect from '@joevin-tang/vue-treeselect-next'
+  import Treeselect from '@joevin/vue-treeselect-next'
   // 导入样式
-  import '@joevin-tang/vue-treeselect-next/dist/vue-treeselect.css'
+  import '@joevin/vue-treeselect-next/dist/vue-treeselect.css'
 
   export default {
     // 注册组件
@@ -97,8 +97,8 @@ npm install --save @joevin-tang/vue-treeselect-next
     <!-- 包含 Vue 2.x -->
     <script src="https://cdn.jsdelivr.net/npm/vue@^2"></script>
     <!-- 包含 vue-treeselect 及其样式。你可以更改版本标签以满足你的需求。 -->
-    <script src="https://cdn.jsdelivr.net/npm/@joevin-tang/vue-treeselect-next@^0.4.1/dist/vue-treeselect.umd.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@joevin-tang/vue-treeselect-next@^0.4.1/dist/vue-treeselect.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@joevin/vue-treeselect-next@^0.5.0/dist/vue-treeselect.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@joevin/vue-treeselect-next@^0.5.0/dist/vue-treeselect.min.css">
   </head>
   <body>
     <div id="app">
