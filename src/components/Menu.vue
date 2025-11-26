@@ -30,7 +30,10 @@
           maxHeight: instance.maxHeight + 'px',
           // ... existing code ...
           ...(instance.virtualScroll ? {
-            overflowY: 'visible',
+            overflowY: 'hidden',
+            // 虚拟滚动模式下，移除 menu 的 padding，由 virtual-list-container 处理
+            paddingTop: 0,
+            paddingBottom: 0,
           } : {}),
         }
       },

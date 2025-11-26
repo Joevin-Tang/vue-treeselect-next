@@ -85,13 +85,33 @@
       // 开始索引
       startIndex() {
         const index = Math.floor(this.scrollTop / this.itemHeight) - this.bufferSize
-        return Math.max(0, index)
+        const totalItems = this.flattenedItems.length
+        const maxStartIndex = Math.max(0, totalItems - this.visibleCount - this.bufferSize)
+
+        // 确保 startIndex 不会过大，导致底部项目被截断
+        return Math.max(0, Math.min(index, maxStartIndex))
       },
 
       // 结束索引
       endIndex() {
         const index = this.startIndex + this.visibleCount + this.bufferSize * 2
-        return Math.min(this.flattenedItems.length, index)
+        const totalItems = this.flattenedItems.length
+
+        // 当滚动到最后时，确保是否出现空白
+        // 即使不能填满整个容器，也要显示剩余项目
+        if (index >= totalItems) {
+          return totalItems
+        }
+
+        // 检查是否已滚到最后
+        const maxOffsetY = Math.max(0, totalItems * this.itemHeight - (this.containerHeight || 300))
+        const currentOffsetY = this.startIndex * this.itemHeight
+        if (currentOffsetY >= maxOffsetY) {
+          // 已经滚到最后，显示所有剩余项目
+          return totalItems
+        }
+
+        return Math.min(totalItems, index)
       },
 
       // 可见的项目列表
@@ -101,6 +121,7 @@
 
       // 偏移量
       offsetY() {
+        // 始终使用 startIndex 计算的偏移
         return this.startIndex * this.itemHeight
       },
     },
@@ -150,7 +171,15 @@
         ]
 
         return (
-          <div class={listItemClass} key={node.id}>
+          <div
+            class={listItemClass}
+            key={node.id}
+            style={{
+              height: `${this.itemHeight}px`,
+              overflow: 'hidden',
+              boxSizing: 'border-box',
+            }}
+          >
             <Option node={node} />
           </div>
         )
@@ -193,6 +222,9 @@
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  /* 在虚拟滚动模式下，将 menu 的 padding 移到这里，确保高度计算准确 */
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .vue-treeselect__virtual-list-spacer {
@@ -201,5 +233,17 @@
 
 .vue-treeselect__virtual-list-items {
   will-change: transform;
+}
+
+/* 虚拟滚动模式下，确保 option 撑满 list-item 的高度 */
+.vue-treeselect__virtual-list-items .vue-treeselect__list-item {
+  display: flex;
+  align-items: stretch;
+}
+
+.vue-treeselect__virtual-list-items .vue-treeselect__option {
+  flex: 1;
+  display: flex;
+  align-items: center;
 }
 </style>

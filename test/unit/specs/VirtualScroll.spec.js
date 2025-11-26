@@ -270,6 +270,50 @@ describe('Virtual Scroll', () => {
     expect(wrapper.find('.vue-treeselect__list-item').exists()).toBe(true)
   })
 
+  it('should not have blank space when scrolling to bottom', async () => {
+    const options = generateLargeDataset(100, 2)
+
+    wrapper = mount(Treeselect, {
+      propsData: {
+        options,
+        multiple: true,
+        virtualScroll: true,
+        optionHeight: 40,
+        maxHeight: 300,
+      },
+      attachTo: document.body,
+    })
+
+    await wrapper.vm.openMenu()
+    await wrapper.vm.$nextTick()
+
+    const virtualContainer = wrapper.find('.vue-treeselect__virtual-list-container')
+
+    // 获取虚拟列表信息
+    const spacer = wrapper.find('.vue-treeselect__virtual-list-spacer')
+    const totalHeight = parseInt(spacer.element.style.height, 10)
+    const containerHeight = virtualContainer.element.clientHeight
+    const maxScrollTop = totalHeight - containerHeight
+
+    // 滚动到最底部
+    virtualContainer.element.scrollTop = maxScrollTop
+    virtualContainer.element.dispatchEvent(new Event('scroll'))
+
+    await wrapper.vm.$nextTick()
+
+    // 验证渲染的项目位置正确，不应该留下空白
+    const items = wrapper.find('.vue-treeselect__virtual-list-items')
+    const transform = items.element.style.transform
+    const offsetMatch = transform.match(/translateY\(([0-9.]+)px\)/)
+    const offsetY = offsetMatch ? parseInt(offsetMatch[1], 10) : 0
+    const renderedItems = wrapper.findAll('.vue-treeselect__list-item')
+
+    // 渲染的内容应该能填满可视区域，应该有项目渲染
+    expect(renderedItems.length).toBeGreaterThan(0)
+    // 离上有恰当的距离，无潕不必要的空白
+    expect(offsetY).toBeLessThanOrEqual(Math.max(0, totalHeight - containerHeight))
+  })
+
   it('should work with checkbox selection', async () => {
     const options = generateLargeDataset(50, 2)
 
