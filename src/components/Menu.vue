@@ -28,6 +28,10 @@
 
         return {
           maxHeight: instance.maxHeight + 'px',
+          // ... existing code ...
+          ...(instance.virtualScroll ? {
+            overflowY: 'visible',
+          } : {}),
         }
       },
 

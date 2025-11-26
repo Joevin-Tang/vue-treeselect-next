@@ -159,17 +159,15 @@
 
     render() {
       const { instance } = this
-      const menuStyle = {
-        maxHeight: instance.maxHeight + 'px',
-      }
-
       return (
         <div class="vue-treeselect__list">
           <div
             ref="container"
             class="vue-treeselect__virtual-list-container"
             onScroll={this.handleScroll}
-            style={menuStyle}
+            style={{
+              maxHeight: instance.maxHeight + 'px',
+            }}
           >
             <div
               class="vue-treeselect__virtual-list-spacer"
@@ -190,6 +188,7 @@
 </script>
 
 <style>
+/* 虚拟滚动容器处理所有的滚动 */
 .vue-treeselect__virtual-list-container {
   overflow-x: hidden;
   overflow-y: auto;
