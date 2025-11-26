@@ -38,7 +38,7 @@ This is a community-maintained fork of the original [vue-treeselect](https://git
 It's recommended to install vue-treeselect via npm, and build your app using a bundler like [webpack](https://webpack.js.org/).
 
 ```bash
-npm install --save @joevin-tang/vue-treeselect-next
+npm install --save @joevin/vue-treeselect-next
 ```
 
 This example shows how to integrate vue-treeselect with your [Vue SFCs](https://vuejs.org/v2/guide/single-file-components.html).
@@ -53,9 +53,9 @@ This example shows how to integrate vue-treeselect with your [Vue SFCs](https://
 
 <script>
   // import the component
-  import Treeselect from '@joevin-tang/vue-treeselect-next'
+  import Treeselect from '@joevin/vue-treeselect-next'
   // import the styles
-  import '@joevin-tang/vue-treeselect-next/dist/vue-treeselect.css'
+  import '@joevin/vue-treeselect-next/dist/vue-treeselect.css'
 
   export default {
     // register the component
@@ -96,8 +96,8 @@ If you just don't want to use webpack or any other bundlers, you can simply incl
     <!-- include Vue 2.x -->
     <script src="https://cdn.jsdelivr.net/npm/vue@^2"></script>
     <!-- include vue-treeselect & its styles. you can change the version tag to better suit your needs. -->
-    <script src="https://cdn.jsdelivr.net/npm/@joevin-tang/vue-treeselect-next@^0.4.1/dist/vue-treeselect.umd.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@joevin-tang/vue-treeselect-next@^0.4.1/dist/vue-treeselect.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@joevin/vue-treeselect-next@^0.5.0/dist/vue-treeselect.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@joevin/vue-treeselect-next@^0.5.0/dist/vue-treeselect.min.css">
   </head>
   <body>
     <div id="app">
