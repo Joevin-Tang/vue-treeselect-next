@@ -1,0 +1,10 @@
+
+> @joevin-tang/vue-treeselect-next@0.5.0 build-library
+> node build/build-library.js
+
+- Building library...
+Hash: [1m0d8ca5e4a9670a1c2b2249a2cfc13e45fc7d081c705b293c81c49a33bbd6777b69326baeb327af6f[39m[22m
+Version: webpack [1m4.47.0[39m[22m
+
+  Build complete.
+
