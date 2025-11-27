@@ -136,3 +136,19 @@
 
       Concretely speaking, we can bind `getter` to `:value` to make vue-treeselect reflect any changes in your Vuex state, and bind `action` or `mutation` to `@input` to update your Vuex state whenever the value changes.
   +demo('VuexSupport')
+
++subsection('Virtual Scroll')
+  :markdown-it
+    For large datasets (1000+ items), you should enable virtual scrolling to improve rendering performance. Virtual scroll only renders items that are visible in the viewport, dramatically reducing DOM nodes and improving performance.
+
+    Key features:
+    - **`virtual-scroll`** - Enable virtual scrolling (required for large datasets)
+    - **`option-height`** - Fixed height for each option in pixels (must match actual CSS height)
+    - **`max-height`** - Maximum height of the dropdown menu
+    - **`default-expand-level`** - Set to `0` for better initial performance
+
+    **Important:** The `option-height` value must exactly match the actual CSS height of each option. Height mismatch will cause rendering issues like blank spaces or cut-off items.
+  +demo('VirtualScroll')
+  p.tip
+    :markdown-it(inline=true)
+      For datasets with 5000+ items, also consider enabling `flatten-search-results`, `cache-options`, and `disable-fuzzy-matching` for optimal performance.
