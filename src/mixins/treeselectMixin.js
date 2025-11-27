@@ -651,7 +651,7 @@ export default {
      */
     optionHeight: {
       type: Number,
-      default: 40,
+      default: 32,
     },
   },
 

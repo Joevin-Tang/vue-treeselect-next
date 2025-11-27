@@ -17,7 +17,7 @@
     props: {
       itemHeight: {
         type: Number,
-        default: 40, // 每个选项的高度（px）
+        default: 32, // 每个选项的高度（px）
       },
       bufferSize: {
         type: Number,
