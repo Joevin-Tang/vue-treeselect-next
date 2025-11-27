@@ -1,6 +1,6 @@
 {
   "name": "@joevin/vue-treeselect-next",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A multi-select component with nested options support for Vue.js",
   "author": "Joevin (https://github.com/Joevin-Tang)",
   "license": "MIT",
