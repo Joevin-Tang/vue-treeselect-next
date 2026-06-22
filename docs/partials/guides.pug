@@ -139,16 +139,61 @@
 
 +subsection('Virtual Scroll')
   :markdown-it
-    For large datasets (1000+ items), you should enable virtual scrolling to improve rendering performance. Virtual scroll only renders items that are visible in the viewport, dramatically reducing DOM nodes and improving performance.
+    When dealing with large datasets (1000+ items), rendering all options at once can cause significant performance issues such as laggy scrolling and slow initial render. The virtual scroll feature solves this by only rendering the options that are visible in the viewport, dramatically reducing DOM nodes and improving performance.
 
-    Key features:
-    - **`virtual-scroll`** - Enable virtual scrolling (required for large datasets)
-    - **`option-height`** - Fixed height for each option in pixels (must match actual CSS height)
-    - **`max-height`** - Maximum height of the dropdown menu
-    - **`default-expand-level`** - Set to `0` for better initial performance
+    ### How It Works
 
-    **Important:** The `option-height` value must exactly match the actual CSS height of each option. Height mismatch will cause rendering issues like blank spaces or cut-off items.
+    Virtual scrolling works by:
+
+      1. **Flattening the tree** - Converting the nested tree structure into a flat list of visible nodes (respecting expand/collapse state)
+      2. **Calculating visible range** - Computing which items fall within the visible viewport based on scroll position
+      3. **Rendering only visible items** - Creating DOM elements only for items in the visible range (plus a small buffer)
+      4. **Using a spacer element** - A tall spacer div maintains the correct scroll height, while visible items are positioned via `translateY`
+
+    This means even with 10,000+ items, only ~20-30 DOM nodes are rendered at any time.
+
+    ### Basic Usage
+
+    Enable virtual scrolling with the `virtual-scroll` prop:
+
+    ```vue
+    <template>
+      <treeselect
+        v-model="value"
+        :multiple="true"
+        :options="largeOptions"
+        :virtual-scroll="true"
+        :option-height="32"
+        :max-height="300"
+        :default-expand-level="0"
+      />
+    </template>
+    ```
+
+    ### Props
+
+    | Prop | Type | Default | Description |
+    | --- | --- | --- | --- |
+    | `virtual-scroll` | Boolean | `false` | Enable virtual scrolling |
+    | `option-height` | Number | `32` | Height of each option in pixels. **Must match the actual CSS height** |
+    | `max-height` | Number | `300` | Maximum height of the dropdown menu |
+    | `default-expand-level` | Number | `0` | Auto-expand levels. Set to `0` for best initial performance |
+
+    ### Important Notes
+
+      - **`option-height` must be accurate**: This value is used to calculate scroll positions and visible ranges. If it doesn't match the actual rendered height, you'll see blank spaces, misaligned items, or scroll jitter.
+      - **Fixed height required**: Virtual scroll requires each option to have a fixed height. Variable-height options are not supported.
+      - **Default expand level**: For large datasets, keep `default-expand-level` at `0` to avoid rendering too many nodes on initial load.
+
+    ### Performance Optimization Tips
+
+    For datasets with 5000+ items, consider these additional optimizations:
+
+      - **`flatten-search-results`** - Flatten the tree when searching to simplify result rendering
+      - **`cache-options`** - Cache search results to avoid redundant processing (enabled by default)
+      - **`disable-fuzzy-matching`** - Disable fuzzy matching for faster exact-match searching
+      - **`default-expand-level="0"`** - Prevent auto-expanding branches on load
   +demo('VirtualScroll')
   p.tip
     :markdown-it(inline=true)
-      For datasets with 5000+ items, also consider enabling `flatten-search-results`, `cache-options`, and `disable-fuzzy-matching` for optimal performance.
+      Virtual scroll works with all major features including search, multi-select, flat mode, and delayed loading. However, custom option templates with variable heights are not supported.

@@ -79,9 +79,6 @@ const webpackConfig = merge(require('./base'), {
       from: utils.resolve('static'),
       to: utils.resolve('gh-pages/static'),
     }, {
-      from: utils.resolve('docs/CNAME'),
-      to: utils.resolve('gh-pages'),
-    }, {
       from: utils.resolve('docs/browserconfig.xml'),
       to: utils.resolve('gh-pages'),
     }, {
