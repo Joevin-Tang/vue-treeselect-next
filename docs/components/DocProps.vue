@@ -268,6 +268,11 @@
         defaultValue: code('false'),
         description: `Whether to automatically open the menu when the control is focused.`,
       }, {
+        name: 'optionHeight',
+        type: 'Number',
+        defaultValue: code('32'),
+        description: `Height of each option in pixels. Used for virtual scroll height calculation. <br>When ${code('virtual-scroll')} is enabled, this value must exactly match the actual CSS height of each option row, otherwise rendering issues like blank spaces or misalignment may occur. <br>See ${link('#virtual-scroll')} for detailed information.`,
+      }, {
         name: 'options',
         type: code('node[]'),
         defaultValue: NO_DEFAULT_VALUE,
@@ -347,6 +352,11 @@
         type: 'String',
         defaultValue: code('"id"'),
         description: `Format of ${code('value')} prop. <br>Note that, when set to ${code('"object"')}, only ${code('id')} & ${code('label')} properties are required in each ${code('node')} object in ${code('value')}. <br>Acceptable values: ${code('"id"')} or ${code('"object"')}.`,
+      }, {
+        name: 'virtualScroll',
+        type: 'Boolean',
+        defaultValue: code('false'),
+        description: `Enable virtual scrolling for large datasets (1000+ items). When enabled, only visible options are rendered in the DOM, dramatically improving rendering performance. <br>See ${link('#virtual-scroll')} for detailed information and usage guide.`,
       }, {
         name: 'zIndex',
         type: 'Number | String',
