@@ -17,7 +17,7 @@ const library = {
 
 const docs = {
   assetsRoot: utils.resolve('gh-pages'),
-  assetsPublicPath: '',
+  assetsPublicPath: './',
   assetsSubDirectory: 'static',
   bundleAnalyzerReport: process.env.npm_config_report,
 }
