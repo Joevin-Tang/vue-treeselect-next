@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import { ASYNC_SEARCH } from '@riophae/vue-treeselect'
+  import { ASYNC_SEARCH } from '@joevin/vue-treeselect-next'
 
   const simulateAsyncOperation = fn => {
     setTimeout(fn, 2000)

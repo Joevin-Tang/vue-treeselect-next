@@ -13,6 +13,7 @@ module.exports = {
       // see: https://vuejs.org/v2/guide/installation.html#Explanation-of-Different-Builds
       'vue$': 'vue/dist/vue',
       // for consistent docs
+      '@joevin/vue-treeselect-next': utils.resolve('src'),
       '@riophae/vue-treeselect': utils.resolve('src'),
       // for shorter import path in tests
       '@src': utils.resolve('src'),
